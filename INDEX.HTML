@@ -2,22 +2,32 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lista</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <h1>Lista de Tarefas</h1>
+  <main class="container">
+    <h1>Lista de Tarefas</h1>
 
-  <form id="form">
-    <input type="text" id="texto" placeholder="Digite uma tarefa">
-    <button type="submit">Adicionar</button>
-  </form>
+    <section class="card">
+      <form id="form" class="form">
+        <input type="text" id="texto" placeholder="Digite uma tarefa" aria-label="Digite uma tarefa">
+        <button type="submit" class="btn">Adicionar</button>
+      </form>
 
-  <p id="msg"></p>
+  <p id="msg" role="status" aria-live="polite"></p>
 
-  <ul id="lista"></ul>
+  <h2 class="tasks-title">TAREFAS</h2>
++
+  <ul id="lista" class="tasks"></ul>
++
+  <p id="lastAdded" class="last-added" aria-live="polite"></p>
+    </section>
+  </main>
 
-  <script src="js/script.js"></script>
+  <script src="JS/script.js"></script>
 </body>
 </html>
