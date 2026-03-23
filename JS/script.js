@@ -25,18 +25,23 @@ function render() {
     const span = document.createElement('span');
     span.className = 'text';
     span.textContent = t.text;
-    // toggle done on click of text
-    span.addEventListener('click', () => {
+
+    const btnConcluir = document.createElement('button');
+    btnConcluir.className = 'btn-concluir';
+    btnConcluir.title = t.done ? 'Desmarcar' : 'Concluir';
+    btnConcluir.textContent = t.done ? 'Desmarcar' : 'Concluir';
+    btnConcluir.addEventListener('click', (ev) => {
+      ev.stopPropagation();
       t.done = !t.done;
       save();
       render();
     });
 
-    const btn = document.createElement('button');
-    btn.className = 'remove';
-    btn.title = 'Remover';
-    btn.textContent = '✕';
-    btn.addEventListener('click', (ev) => {
+    const btnExcluir = document.createElement('button');
+    btnExcluir.className = 'btn-excluir';
+    btnExcluir.title = 'Excluir';
+    btnExcluir.textContent = 'Excluir';
+    btnExcluir.addEventListener('click', (ev) => {
       ev.stopPropagation();
       tarefas.splice(idx, 1);
       save();
@@ -44,7 +49,8 @@ function render() {
     });
 
     li.appendChild(span);
-    li.appendChild(btn);
+    li.appendChild(btnConcluir);
+    li.appendChild(btnExcluir);
     lista.appendChild(li);
   });
   updateCounter();
